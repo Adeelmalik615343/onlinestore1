@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - My Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+
+  <a class="navbar-brand fw-bold" href="/">
+    <i class="fas fa-store"></i> My Store
+  </a>
+
+  <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+  <i class="fas fa-bars navbar-toggler-icon-custom"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ms-auto align-items-center">
+    <li class="nav-item">
+      <a class="nav-link active" href="cart.html">
+        <i class="fas fa-shopping-cart"></i> Cart <span id="cartCount" class="badge bg-warning text-dark">0</span>
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown">
+        <i class="fas fa-user"></i> Account
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="user-login.html">Login</a></li>
+        <li><a class="dropdown-item" href="user-signup.html">Sign Up</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="user-dashboard.html">Dashboard</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  </div>
+  </div>
+  </nav>
+
+  <!-- Cart Section -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Your Cart</h2>
+    <div id="cartContainer">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody id="cartItems">
+            <!-- Cart items will be loaded here via JS -->
+          </tbody>
+        </table>
+      </div>
+      <h4>Total: $<span id="cartTotal">0</span></h4>
+      <a href="checkout.html" class="btn btn-success mt-3">Proceed to Checkout</a>
+    </div>
+  </div>
+
+  <script src="js/cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    
+    // Update cart count
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartCount = document.getElementById("cartCount");
+      if (cartCount) {
+        cartCount.textContent = cart.length;
+      }
+    }
+    updateCartCount();
+    
+    // Toggle burger to cross
+    const collapse = document.getElementById('navbarNav');
+    const togglerIcon = document.querySelector('.navbar-toggler-icon-custom');
+    if (collapse && togglerIcon) {
+      collapse.addEventListener('show.bs.collapse', () => {
+        togglerIcon.classList.remove('fa-bars');
+        togglerIcon.classList.add('fa-times');
+      });
+      collapse.addEventListener('hide.bs.collapse', () => {
+        togglerIcon.classList.add('fa-bars');
+        togglerIcon.classList.remove('fa-times');
+      });
+    }
+  </script>
+</body>
+</html>

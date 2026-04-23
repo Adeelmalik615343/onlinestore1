@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Store</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="/">
+  <i class="fas fa-store"></i> My Store
+</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<i class="fas fa-bars navbar-toggler-icon-custom"></i>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<!-- Search Bar -->
+<form class="d-flex mx-auto w-50">
+<input
+id="searchInput"
+class="form-control me-2"
+type="search"
+placeholder="Search products...">
+</form>
+
+<ul class="navbar-nav ms-auto align-items-center">
+  <li class="nav-item">
+    <a class="nav-link" href="cart.html">
+      <i class="fas fa-shopping-cart"></i> Cart <span id="cartCount" class="badge bg-warning text-dark">0</span>
+    </a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown">
+      <i class="fas fa-user"></i> Account
+    </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="user-login.html">Login</a></li>
+      <li><a class="dropdown-item" href="user-signup.html">Sign Up</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="user-dashboard.html">Dashboard</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+</div>
+</nav>
+
+<!-- Categories -->
+<div class="bg-light py-2">
+<div class="container">
+<div class="d-flex flex-wrap justify-content-center" id="categoriesContainer">
+<!-- Categories will be loaded here -->
+</div>
+</div>
+</div>
+
+
+<!-- Hero Section -->
+<section class="hero" data-aos="fade-in">
+<div class="container">
+<h1 class="display-4 fw-bold">Welcome to My Store</h1>
+<p class="lead">Shop the best products at amazing prices</p>
+<a href="#products" class="btn btn-warning btn-lg mt-3">Shop Now</a>
+</div>
+</section>
+
+
+<!-- Features -->
+<div class="container text-center my-5 features" data-aos="fade-up">
+
+<div class="row">
+
+<div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="100">
+<div class="feature-card">
+<h5>🚚 Fast Delivery</h5>
+<p>Quick delivery to your home</p>
+</div>
+</div>
+
+<div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="200">
+<div class="feature-card">
+<h5>💳 Secure Payments</h5>
+<p>Cash, EasyPaisa & Card accepted</p>
+</div>
+</div>
+
+<div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="300">
+<div class="feature-card">
+<h5>⭐ Quality Products</h5>
+<p>Best quality guaranteed</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Flash Banner -->
+<div class="container">
+<div class="flash-banner" data-aos="fade-up">
+<h3>🎉 Limited Time Offer</h3>
+<p>Get exclusive deals on selected products</p>
+<div class="discount">UP TO 40% OFF</div>
+<p style="margin-top:15px; font-size:0.95em;">Use code: SAVE40 at checkout</p>
+</div>
+</div>
+
+<!-- Products -->
+<div class="container my-5" id="products" data-aos="fade-up">
+
+<h2 class="text-center mb-4">Featured Products</h2>
+
+<div class="row g-4" id="productsContainer">
+
+<!-- Products will load here -->
+
+</div>
+
+</div>
+
+
+<!-- Footer -->
+<footer class="footer bg-dark text-light py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5>USEFUL LINKS</h5>
+        <ul class="list-unstyled">
+          <li><a href="/" class="text-light text-decoration-none">Home</a></li>
+          <li><a href="/products" class="text-light text-decoration-none">Products</a></li>
+          <li><a href="/about" class="text-light text-decoration-none">About</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>CONTACT</h5>
+        <p class="mb-1">Email: <a href="mailto:your@email.com" class="text-light text-decoration-none">your@email.com</a></p>
+        <p>WhatsApp: <a href="tel:+92999999999" class="text-light text-decoration-none">+92-XXX-XXXXXXX</a></p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>ABOUT</h5>
+        <p>A platform for shopping online with quality products and fast delivery.</p>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <p class="mb-0">© 2026 My Store — Built with ❤️ using Node.js</p>
+    </div>
+  </div>
+</footer>
+
+
+<script src="js/auth-nav.js"></script>
+<script src="js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+  
+  // Toggle burger to cross
+  const collapse = document.getElementById('navbarNav');
+  const togglerIcon = document.querySelector('.navbar-toggler-icon-custom');
+  if (collapse && togglerIcon) {
+    collapse.addEventListener('show.bs.collapse', () => {
+      togglerIcon.classList.remove('fa-bars');
+      togglerIcon.classList.add('fa-times');
+    });
+    collapse.addEventListener('hide.bs.collapse', () => {
+      togglerIcon.classList.add('fa-bars');
+      togglerIcon.classList.remove('fa-times');
+    });
+  }
+</script>
+
+</body>
+</html>
