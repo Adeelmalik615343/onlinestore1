@@ -93,6 +93,8 @@ function validateEnv() {
 async function startServer() {
   try {
     validateEnv();
+    const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
     await mongoose.connect(process.env.MONGO_URI);
     console.log("MongoDB Connected");
 
